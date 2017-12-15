@@ -1,5 +1,5 @@
 use strict;
-#first file is a contig pool ($inFileFasta), second one is a list of the contigs you want to extract ($inFileNames)
+#first file is a contig pool ($inFileFasta), second one is a list of names of the contigs you want to extract ($inFileNames)
 my ($inFileFasta, $inFileNames, $outFile) = @ARGV;
 open (my $in1, "<", $inFileFasta) or die "cannot open $inFileFasta";
 open (my $in2, "<", $inFileNames) or die "cannot open $inFileNames";
@@ -9,7 +9,7 @@ open(my $out, ">>", $outFile) or die "cannot open $outFile";
 my @names = <$in2>;    
 chomp  @names;
     
-#read first line from infile1 which is must ne a header of the first sequence 
+#read first line from infile1 which is must be a header of the first sequence 
 my $fastaLine = <$in1>;                  #>name of the header
 chomp $fastaLine;
 while (defined $fastaLine) {
